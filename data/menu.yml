@@ -1,0 +1,4 @@
+items:
+  - title: "About"
+    path: "/about"
+    icon: "fa fa-thumbs-up"

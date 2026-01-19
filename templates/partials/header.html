@@ -1,0 +1,46 @@
+<div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="{site.url}">
+        <img class="wf-logo" src="{site.url('assets/img/ironjacamar-logo.png')}">
+    </a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="{site.url('news/')}" class="{#if page.url.path.contains('/news/')}active{/if}">NEWS</a>
+        </li>
+        <li>
+          <div class="dropdown">
+            <a href="{site.url('about/')}" class="{#if page.url.path.contains('/about/')}active{/if}">ABOUT</a>
+            <div class="dropdown-content">
+              <a href="#">Get started</a>
+              <a href="#">JCA specification</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <a target="_blank" href="https://docs.wildfly.org">DOCS</a>
+            <div class="dropdown-content">
+              <a href="#">User Guide</a>
+              <a href="#">Developer Guide</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <a target="_blank" href="https://docs.wildfly.org">CONTRIBUTE</a>
+            <div class="dropdown-content">
+              <a href="#">Ask a questions</a>
+              <a href="#">Fill a bug</a>
+              <a href="#">GitHub</a> 
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</div>
