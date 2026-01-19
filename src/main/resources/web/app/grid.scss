@@ -1,0 +1,40 @@
+$breakpoint-m: 35em;
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  clear: both;
+}
+
+.width-11-11 {
+  grid-column: span 11;
+}
+
+.width-2-11 {
+  grid-column: span 2;
+}
+
+.width-4-11 {
+  grid-column: span 4;
+}
+
+.width-1-11 {
+  grid-column: span 1;
+}
+
+/* The Centering Offset */
+.offset-1 {
+  grid-column-start: 2;
+}
+
+@media (max-width: $breakpoint-m) {
+  /* Target the 11-column classes to span the full width. 
+     This forces the second box (Updates) to drop below the first (Learn More).
+  */
+  .width-4-11, .width-11-11 {
+    grid-column: span 11 !important;
+  }
+}

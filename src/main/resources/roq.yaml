@@ -1,0 +1,13 @@
+site:
+  title: "IronJacamar"
+  description: "Next-generation JCA implementation for Jakarta EE"
+  base_url: "https://ironjacamar.org"
+  # You can add custom data here that shows up in your footer/header
+  twitter: "@ironjacamar"
+  github: "https://github.com/ironjacamar"
+
+# Roq specific settings
+roq:
+  theme: "default" # Or your custom theme name if you moved layouts
+  posts_path: "posts"
+  pages_path: "content"

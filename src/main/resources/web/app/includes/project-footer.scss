@@ -1,0 +1,47 @@
+.project-footer {
+  // 1. Keep the Glassmorphism
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(5px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(5px) saturate(160%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+  // 2. Fix the Height (Switch to 'min-height' and smaller padding)
+  height: auto; 
+  min-height: 60px; // Slimmer look
+  padding: 1rem 0; 
+
+  // 3. Center the Logo Wrapper
+  .logo-wrapper {
+    display: flex;       // Changed to flex
+    justify-content: center; // Horizontal center
+    align-items: center;     // Vertical center
+    margin: 0 auto;
+    width: 100%;
+
+    img { 
+      height: 40px;      // Slightly smaller to reduce vertical bulk
+      width: auto;
+      display: block;
+    }
+  }
+
+  // Ensure paragraphs don't add extra vertical bloat
+  p {
+    margin: 0.5rem 0;
+    text-align: center; // Center text under logo if needed
+    font-size: .875rem;
+  }
+
+  // Center the link lists if they are on their own lines
+  .project-links, .footer-links {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    
+    li {
+      display: inline-block;
+    }
+  }
+}

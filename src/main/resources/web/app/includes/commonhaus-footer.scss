@@ -1,0 +1,85 @@
+.commonhaus-footer {
+  background-color: $black;
+  color: $white;
+  min-height: 170px; /* Changed height to min-height for safety */
+  width: 100%;
+
+  /* Isolate the footer grid from the global grid */
+  .grid-wrapper { 
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 1.5rem 2rem !important; /* Smaller padding for footer */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .licence {
+    grid-column: 1/6;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    a {
+      color: $white;
+      font-size: .875rem;
+      font-weight: 200;
+    }
+    @media screen and (max-width: 1024px) {
+      grid-column: 1/5;
+      justify-self: left;
+    }
+    @media screen and (max-width: 768px) {
+      grid-column: 1/5;
+    }
+    @media screen and (max-width: 480px) {
+      grid-column: 1/13;
+      justify-self: center;
+      order: 3;
+    }
+  }
+
+  .commonhaus-logo {
+    grid-column: 7/13;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    img { 
+        height: 30px; 
+    }
+    @media screen and (max-width: 1024px) {
+      grid-column: 6/12;
+      justify-self: center;
+    }
+    @media screen and (max-width: 768px) {
+      grid-column: 5/11;
+    }
+    @media screen and (max-width: 480px) {
+      grid-column: 1/13;
+      justify-self: center;
+      order: 1;
+    }
+  }
+
+  .commonhaus-legal {
+    grid-column: 1/13;
+    grid-row: 2;
+    align-self: start;
+    justify-self: center;
+    font-size: .75rem;
+    font-weight: 200;
+    a {
+      color: $white;
+    }
+    @media screen and (max-width: 1024px) {
+      grid-column: 1/12;
+      justify-self: center;
+    }
+    @media screen and (max-width: 768px) {
+      grid-column: 1/11;
+    }
+    @media screen and (max-width: 480px) {
+      grid-column: 1/13;
+      justify-self: center;
+      order: 2;
+    }
+  }
+}

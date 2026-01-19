@@ -1,0 +1,185 @@
+/* --- 1. Layout & Header Foundation --- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  min-height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Use a very low alpha (0.05) to keep the circuitry sharp */
+  background: rgba(255, 255, 255, 0.05) !important;
+
+  /* The "Safe" Blur range - try 5px if 3px feels too clear */
+  backdrop-filter: blur(5px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(5px) saturate(190%) !important;
+
+  /* This helps the browser stay in the 'fast' rendering path */
+  transform: translateZ(0); 
+  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent !important;
+}
+
+/* --- 2. Logo & Branding --- */
+.logo-container {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.logo-container:hover { 
+  transform: scale(1.02); 
+}
+
+.logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* --- 3. Navigation Links --- */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-menu a {
+  position: relative;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #6c757d; /* text-muted */
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover { 
+  color: #212529; /* text-main */
+}
+
+/* Hover Underline Animation */
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background-color: #32CD32;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-menu a:hover::after { 
+  transform: scaleX(1); 
+}
+
+/* --- 4. Dropdown Menu --- */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.arrow {
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    min-width: 180px;
+    padding: 0.5rem 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .dropdown:hover .arrow { 
+    transform: rotate(-135deg); 
+    color: #32CD32; 
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #6c757d;
+  }
+
+  .dropdown-content a:hover {
+    background: rgba(50, 205, 50, 0.05);
+    color: #32CD32;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .dropdown-content {
+    display: none;
+    background: rgba(0, 0, 0, 0.03);
+    width: 100%;
+  }
+
+  .dropdown:hover .dropdown-content { 
+    display: block; 
+  }
+
+  .dropdown-trigger { 
+    justify-content: center; 
+  }
+}
+
+// 4. Typography & Home Section Refinement
+
+h4 { 
+  font-size: 1.2rem; // Default h4 size
+  font-weight: 300; 
+  line-height: 1.5; 
+}
+
+/* KEEP THE CARDS SMALLER */
+.news-content {
+  font-size: 1.05rem; // Slightly smaller than before to create contrast
+  line-height: 1.4;
+  font-weight: 300;
+  // ... (keep your existing logic)
+}

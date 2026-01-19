@@ -1,0 +1,67 @@
+---
+layout: base
+---
+
+<div class="grid-wrapper">
+    
+    <div class="grid__item width-11-11">
+        <div class="action-box">
+            <div class="news-tag">About IronJacamar</div>
+            <div class="news-content">
+                <p>
+                The Jakarta Connectors specification defines a standard architecture for connecting the Jakarta EE platform to
+                heterogeneous Enterprise Information Systems (EIS). Examples of EISs include Enterprise Resource
+                Planning (ERP), mainframe transaction processing (TP), database and messaging systems.
+            </div>
+        </div>
+    </div>
+
+    <div class="grid__item width-11-11">
+        <div class="action-box">
+            <div class="news-tag">Architecture & Integration</div>
+            <div class="news-content">
+                <p>
+                    The connector architecture defines a set of scalable, secure, and transactional mechanisms that enable
+                    the integration of EISs with application servers and enterprise applications.
+                </p>
+                <p>
+                    The connector architecture also defines a Common Client Interface (CCI) for EIS access. The CCI defines
+                    a client API for interacting with heterogeneous EISs.
+                </p>
+                <p>
+                    The connector architecture enables an EIS vendor to provide a standard resource adapter for its EIS.
+                    A resource adapter is a system-level software driver that is used by a Java application to connect
+                    to an EIS. The resource adapter plugs into an application server and provides connectivity between
+                    the EIS, the application server, and the enterprise application. The resource adapter serves as a
+                    protocol adapter that allows any arbitrary EIS communication protocol to be used for connectivity.
+                    An application server vendor extends its system once to support the connector architecture and is
+                    then assured of seamless connectivity to multiple EISs. Likewise, an EIS vendor provides one standard
+                    resource adapter which has the capability to plug in to any application server that supports
+                    the connector architecture.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid__item width-11-11">
+        <div class="news-box">
+            <div class="news-tag">Use Cases & Resource Adapters</div>
+            <div class="news-content">
+                <p><strong>Use cases for Jakarta Connectors</strong></p>
+                <p>Examples of resource adapters</p>
+                <ul class="custom-list">
+                    <li>A Java Database Connectivity (JDBC) resource adapter, which provides the foundation for datasources inside an application server, like WildFly</li>
+                    <li>A Java Message Service (JMS) resource adapter, which enables communication with messaging systems, like HornetQ, ActiveMQ or WebSphereMQ</li>
+                    <li>A Java Mail resource adapter, which allows email to trigger EJB3/Message-Driven Beans</li>
+                    <li>A resource adapter for a legacy system that speak a weird binary protocol to be integrated with a Jakarta EE server</li>
+                </ul>
+                <p>
+                    In short - when ever you have a situation where the system that you want to integrate with
+                    doesn't support a standard protocol, or when you want to take advantage of the cool features
+                    of Jakarta Connectors like pooling, security and transaction integration it is
+                    time to write a resource adapter !
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
