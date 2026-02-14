@@ -20,7 +20,7 @@ body {
 
 div.content {
   padding: 0 15rem;
-  height: calc(100vh - 305px);
+  min-height: calc(100vh - 305px);
   @media screen and (max-width: 1170px) { padding: 0 6rem; }
   @media screen and (max-width: 480px) { padding: 0 2rem; }
 }
