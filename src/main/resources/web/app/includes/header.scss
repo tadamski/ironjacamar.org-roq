@@ -8,17 +8,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Use a very low alpha (0.05) to keep the circuitry sharp */
   background: rgba(255, 255, 255, 0.05) !important;
-
-  /* The "Safe" Blur range - try 5px if 3px feels too clear */
   backdrop-filter: blur(5px) saturate(190%) !important;
   -webkit-backdrop-filter: blur(5px) saturate(190%) !important;
-
-  /* This helps the browser stay in the 'fast' rendering path */
-  transform: translateZ(0); 
-  
+  transform: translateZ(0);  
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
@@ -40,9 +33,7 @@ header {
   text-decoration: none;
 }
 
-.logo-container:hover { 
-  transform: scale(1.02); 
-}
+.logo-container:hover { transform: scale(1.02); }
 
 .logo-img {
   height: 52px;
@@ -51,7 +42,7 @@ header {
   image-rendering: -webkit-optimize-contrast;
 }
 
-/* --- 3. Navigation Links --- */
+/* --- 3. Navigation Links & Hamburger Logic --- */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -62,17 +53,14 @@ header {
   position: relative;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  color: #6c757d; /* text-muted */
+  color: #6c757d;
   font-weight: 600;
   font-size: 0.85rem;
   transition: color 0.3s ease;
 }
 
-.nav-menu a:hover { 
-  color: #212529; /* text-main */
-}
+.nav-menu a:hover { color: #212529; }
 
-/* Hover Underline Animation */
 .nav-menu a::after {
   content: '';
   position: absolute;
@@ -85,14 +73,13 @@ header {
   transition: transform 0.3s ease;
 }
 
-.nav-menu a:hover::after { 
-  transform: scaleX(1); 
-}
+.nav-menu a:hover::after { transform: scaleX(1); }
+
+/* Hide mobile toggle by default */
+.menu-toggle-checkbox, .hamburger-icon { display: none; }
 
 /* --- 4. Dropdown Menu --- */
-.dropdown {
-  position: relative;
-}
+.dropdown { position: relative; }
 
 .dropdown-trigger {
   display: flex;
@@ -110,7 +97,7 @@ header {
   transition: transform 0.3s ease;
 }
 
-/* Desktop Styles */
+/* Desktop Only Styles */
 @media (min-width: 769px) {
   .dropdown-content {
     position: absolute;
@@ -134,9 +121,9 @@ header {
     transform: translateX(-50%) translateY(0);
   }
 
-  .dropdown:hover .arrow { 
-    transform: rotate(-135deg); 
-    color: #32CD32; 
+  .dropdown:hover .arrow {
+    transform: rotate(-135deg);
+    color: #32CD32;
   }
 
   .dropdown-content a {
@@ -151,35 +138,97 @@ header {
   }
 }
 
-/* Mobile Styles */
+/* --- 5. Mobile Styles & Hamburger Toggle --- */
 @media (max-width: 768px) {
-  .dropdown-content {
-    display: none;
-    background: rgba(0, 0, 0, 0.03);
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centered layout prevents top bar squashing */
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 1100;
+    gap: 5px; /* Consistent spacing between bars */
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 3px;
+    width: 28px;
+    background-color: #4a4a4a; /* Slate Gray */
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+  }
+
+  .nav-menu {
+    display: flex !important; 
+    flex-direction: column;
+    position: fixed;
+    top: 90px;
+    left: 0;
     width: 100%;
+    height: calc(100vh - 90px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    padding: 2rem 0;
+    
+    /* Start hidden */
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 1000;
   }
 
-  .dropdown:hover .dropdown-content { 
-    display: block; 
+  .menu-toggle-checkbox:checked ~ .nav-menu {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
-  .dropdown-trigger { 
-    justify-content: center; 
+  /* Hamburger to X Animation */
+  .menu-toggle-checkbox:checked ~ .hamburger-icon span:nth-child(1) { 
+    transform: translateY(8px) rotate(45deg); 
   }
+  .menu-toggle-checkbox:checked ~ .hamburger-icon span:nth-child(2) { 
+    opacity: 0; 
+  }
+  .menu-toggle-checkbox:checked ~ .hamburger-icon span:nth-child(3) { 
+    transform: translateY(-8px) rotate(-45deg); 
+  }
+
+  .nav-menu a {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .dropdown-content {
+    display: none !important;
+    background: rgba(0, 0, 0, 0.03) !important;
+    width: 100%;
+    position: static !important;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .dropdown:hover .dropdown-content { display: block !important; }
 }
 
-// 4. Typography & Home Section Refinement
+/* 6. Typography & Refinement */
+.menu-toggle-checkbox { display: none !important; }
 
-h4 { 
-  font-size: 1.2rem; // Default h4 size
-  font-weight: 300; 
-  line-height: 1.5; 
-}
+h4 { font-size: 1.2rem; font-weight: 300; line-height: 1.5; }
 
-/* KEEP THE CARDS SMALLER */
 .news-content {
-  font-size: 1.05rem; // Slightly smaller than before to create contrast
+  font-size: 1.05rem;
   line-height: 1.4;
   font-weight: 300;
-  // ... (keep your existing logic)
 }
