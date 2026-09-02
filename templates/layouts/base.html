@@ -39,14 +39,14 @@
 
   <style>
       .homepage {
-          background-image: linear-gradient(rgba(248, 249, 250, 0.75), rgba(248, 249, 250, 0.75)), url('/assets/img/background.jpg');
+          background-image: linear-gradient(rgba(248, 249, 250, 0.75), rgba(248, 249, 250, 0.75)), url('{site.url('/assets/img/background.jpg')}');
           background-color: transparent;
       }
       .home-icons {
           a {
-              &.github:before { content: url({site.url('/assets/img/homepage/wildfly_icons_home-github.png')}; }
-              &.docs:before { content: url({site.url('/assets/img/homepage/wildfly_icons_home-docs.png')}; }
-              &.forums:before { content: url({site.url('/assets/img/homepage/wildfly_icons_home-forums.png')}; }
+              &.github:before { content: url({site.url('/assets/img/homepage/wildfly_icons_home-github.png')}); }
+              &.docs:before { content: url({site.url('/assets/img/homepage/wildfly_icons_home-docs.png')}); }
+              &.forums:before { content: url({site.url('/assets/img/homepage/wildfly_icons_home-forums.png')}); }
           }
       }
   </style>
