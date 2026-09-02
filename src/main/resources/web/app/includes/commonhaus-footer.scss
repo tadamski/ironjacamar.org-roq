@@ -1,16 +1,19 @@
 .commonhaus-footer {
-  background-color: $black;
+  background-color: #6c757d;
   color: $white;
-  min-height: 170px; /* Changed height to min-height for safety */
   width: 100%;
+  flex-shrink: 0; /* Prevent footer from shrinking and stay at bottom */
 
   /* Isolate the footer grid from the global grid */
-  .grid-wrapper { 
+  .grid-wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    padding: 1.5rem 2rem !important; /* Smaller padding for footer */
+    padding: 1rem 2rem !important; /* Reduced padding for more compact footer */
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    box-sizing: border-box;
+    row-gap: 0.75rem; /* Tighter spacing between rows */
   }
 
   .licence {
@@ -30,10 +33,11 @@
     @media screen and (max-width: 768px) {
       grid-column: 1/5;
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 640px) {
       grid-column: 1/13;
       justify-self: center;
       order: 3;
+      margin-top: 1rem;
     }
   }
 
@@ -42,20 +46,21 @@
     grid-row: 1;
     justify-self: center;
     align-self: center;
-    img { 
-        height: 30px; 
+    img {
+        height: 30px;
     }
     @media screen and (max-width: 1024px) {
-      grid-column: 6/12;
-      justify-self: center;
+      grid-column: 6/13;
+      justify-self: right;
     }
     @media screen and (max-width: 768px) {
-      grid-column: 5/11;
+      grid-column: 6/13;
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 640px) {
       grid-column: 1/13;
       justify-self: center;
       order: 1;
+      margin-bottom: 1rem;
     }
   }
 
@@ -66,20 +71,49 @@
     justify-self: center;
     font-size: .75rem;
     font-weight: 200;
+    padding: 0 0.5rem; /* Add padding to prevent text touching edges */
+    text-align: center; /* Center text for better appearance */
     a {
       color: $white;
     }
     @media screen and (max-width: 1024px) {
-      grid-column: 1/12;
+      grid-column: 1/13;
       justify-self: center;
     }
     @media screen and (max-width: 768px) {
-      grid-column: 1/11;
+      grid-column: 1/13;
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 640px) {
       grid-column: 1/13;
       justify-self: center;
       order: 2;
+      margin-top: 1rem;
+    }
+    @media screen and (max-width: 480px) {
+      font-size: .7rem; /* Slightly smaller on mobile */
+    }
+  }
+
+  /* Mobile responsive padding */
+  @media screen and (max-width: 768px) {
+    .grid-wrapper {
+      padding: 1rem 1rem !important;
+      width: calc(100% - 2rem);
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .grid-wrapper {
+      padding: 1rem 1rem !important;
+      gap: 0.5rem; /* Add gap between grid items on mobile */
+      width: calc(100% - 2rem);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .grid-wrapper {
+      padding: 0.75rem 0.75rem !important;
+      width: calc(100% - 1.5rem);
     }
   }
 }
